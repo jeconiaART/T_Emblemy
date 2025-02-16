@@ -1,0 +1,41 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Table with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var table = $("<table></table>").addClass("table-class");
+            var header = $("<tr></tr>");
+            header.append($("<th></th>").text("Column 1"));
+            header.append($("<th></th>").text("Column 2"));
+            header.append($("<th></th>").text("Column 3"));
+            table.append(header);
+
+            for (var i = 0; i < 5; i++) {
+                var row = $("<tr></tr>");
+                row.append($("<td></td>").text("Row " + (i + 1) + ", Cell 1"));
+                row.append($("<td></td>").text("Row " + (i + 1) + ", Cell 2"));
+                row.append($("<td></td>").text("Row " + (i + 1) + ", Cell 3"));
+                table.append(row);
+            }
+
+            $("#table-container").append(table);
+        });
+    </script>
+    <style>
+        .table-class {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .table-class th, .table-class td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="table-container"></div>
+</body>
+</html>
